@@ -257,17 +257,7 @@ body {
   object-fit:fill;
   border-radius: 15px;
 }
-/* colors */
-/* .furniture { background: #6aa89e; }
-.handbag   { background: #f6a23d; }
-.books     { background: #a02020; }
-.tech      { background: #38b26b; }
-.sneakers  { background: #f4a1a8; }
-.travel    { background: #fbbc5c; } */
 
-/* ===============================
-   PRODUCTS
-================================= */
 
 .products {
   padding: 60px;
@@ -354,10 +344,13 @@ body {
   background: #0b4d3c;
   color: #fff;
 }
+.prod{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background: white;
+}
 
-/* ===============================
-   RESPONSIVE
-================================= */
+
 
 @media (max-width: 1000px) {
   .category-grid {
@@ -785,5 +778,6 @@ body {
   background: #fff;
   color: #043f2e;
 }
+
 
 
