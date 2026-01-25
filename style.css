@@ -257,17 +257,7 @@ body {
   object-fit:fill;
   border-radius: 15px;
 }
-/* colors */
-/* .furniture { background: #6aa89e; }
-.handbag   { background: #f6a23d; }
-.books     { background: #a02020; }
-.tech      { background: #38b26b; }
-.sneakers  { background: #f4a1a8; }
-.travel    { background: #fbbc5c; } */
 
-/* ===============================
-   PRODUCTS
-================================= */
 
 .products {
   padding: 60px;
@@ -354,10 +344,13 @@ body {
   background: #0b4d3c;
   color: #fff;
 }
+.prod{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background: white;
+}
 
-/* ===============================
-   RESPONSIVE
-================================= */
+
 
 @media (max-width: 1000px) {
   .category-grid {
@@ -489,58 +482,7 @@ body {
   color: #fff;
   border: none;
 }
-/* 
-.products {
-  padding: 40px 80px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
 
-.product-card {
-  background: #f8f8f8;
-  border-radius: 20px;
-  padding: 25px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-}
-
-.product-card h3 {
-  margin: 15px 0 5px;
-}
-
-.price {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.desc {
-  color: #666;
-  font-size: 14px;
-}
-
-.rating {
-  color: green;
-  margin: 10px 0;
-}
-
-.product-card button {
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: 1px solid #000;
-  background: transparent;
-  cursor: pointer;
-} */
 
 .wishlist {
   position: absolute;
@@ -609,7 +551,7 @@ body {
   border: none;
 }
 
-/* best selling */
+
 
 .store-grid {
   display: grid;
@@ -627,7 +569,7 @@ body {
   font-size: 14px;
 }
 
-/* services */
+
 
 .services-grid {
   display: grid;
@@ -648,7 +590,6 @@ body {
   border-radius: 15px;
 }
 
-/* footer */
 
 .footer {
   border-top: 1px solid #ddd;
@@ -785,5 +726,7 @@ body {
   background: #fff;
   color: #043f2e;
 }
+
+
 
 
