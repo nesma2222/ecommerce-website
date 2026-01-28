@@ -10,8 +10,6 @@ body {
   background: #f6f9fc;
 }
 
-
-
 .top-bar {
   background: #0b4d3c;
   color: white;
@@ -26,16 +24,25 @@ body {
   gap: 30px;
 }
 
-#menu-toggle{
+#menu-toggle,
+#cat-toggle {
   display: none;
 }
 
-.menu-icon{
-  display:none;
-  font-size: 32px;
-  cursor:pointer;
-  color:white;
+/* hamburger */
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
 }
+
+/* MENU */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
 
 .dropdown-small {
   position: relative;
@@ -103,67 +110,91 @@ body {
   cursor: pointer;
   font-weight: 500;
 }
-
-
-
 .dropdown-categor-wrapper {
   position: relative;
 }
 
+/* button */
 .drop-btn-categor {
   background: none;
   border: none;
   font-size: 16px;
   font-weight: 600;
-  cursor:pointer;
+  cursor: pointer;
 }
 
+/* dropdown box */
 .dropdown-categor {
   position: absolute;
   top: 45px;
   left: 0;
   width: 720px;
+  max-width: 95vw;
   background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
   display: none;
   z-index: 999;
 }
 
+/* open dropdown */
 .dropdown-categor-wrapper:focus-within .dropdown-categor {
   display: block;
 }
+
+/* heading */
 .dropdown-categor h3 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 700;
 }
 
-
-
+/* GRID FIX */
 .categor-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  width: 45px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
 }
 
+/* CARD */
 .categor-card {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 32px;
-  border-radius: 12px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #f8f9fb;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .categor-card:hover {
-  background: #f5f7ff;
+  background: #eef1ff;
+  transform: translateY(-4px);
 }
 
+/* IMAGE */
 .categor-card img {
-  width: 45px;
+  width: 55px;
+  height: 55px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  object-fit: contain;
 }
+
+/* TEXT */
+.categor-card h4 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.categor-card p {
+  font-size: 14px;
+  color: #777;
+}
+
 
 .search-box {
   display: flex;
@@ -864,11 +895,6 @@ body {
   transform: scale(1.2);
  }
 
-/* ================================
-   RESPONSIVE DESIGN
-   ================================ */
-
-/* ---------- Laptop (≤1024px) ---------- */
 @media (max-width: 1024px) {
 
   .category-grid {
@@ -899,10 +925,45 @@ body {
   .btn {
     margin-left: 0;
   }
+  .menu {
+    display: none;   
+  }
+  .menu-icon {
+    display: block;
+    color: #043f2e;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    gap: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  #menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+  }
+  .dropdown-categor {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: none;
+    border-radius: 18px;
+  }
+
+  .categor-grid {
+    grid-template-columns:  repeat(2, 1fr)
+  }
+ 
+
 }
 
-
-/* ---------- Tablet (≤768px) ---------- */
 @media (max-width: 768px) {
 
   .navbar {
@@ -911,7 +972,7 @@ body {
   }
 
   .menu {
-    display: none;   /* later can be hamburger */
+    display: none;   
   }
 
   .hero {
@@ -951,31 +1012,70 @@ body {
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
   }
-   .menu-icon{
-    display:block;
-    font-size: 32px;
-    cursor: pointer;
-    color: rgb(243, 238, 238);
-    margin-left: auto;
-  }
+   
     .nav-links a {
     padding: 15px 0;
     font-size: 20px;
     margin: 0;
   }
- #menu-toggle:checked + .menu-icon + .menu {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 90px;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    gap: 20px;
+
+  .menu-icon {
+    display: block;
   }
 
+  .menu {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0;
+    display: none;
+    z-index: 999;
+  }
+
+  /* open menu */
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  /* category button */
+  .drop-btn-mobile {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  /* dropdown */
+  .dropdown-menu-mobile {
+    list-style: none;
+    display: none;
+    text-align: center;
+  }
+
+  .dropdown-menu-mobile li {
+    padding: 12px 0;
+  }
+
+  .dropdown-menu-mobile a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #111;
+  }
+
+  /* open category */
+  #cat-toggle:checked ~ .dropdown-menu-mobile {
+    display: block;
+  }
 }
+
+
 
 
 /* ---------- Mobile (≤480px) ---------- */
@@ -989,6 +1089,8 @@ body {
 
   .navbar {
     padding: 15px;
+    position: relative;
+    z-index: 1000;
   }
 
   .search-box input {
@@ -1003,8 +1105,30 @@ body {
     font-size: 16px;
   }
 
-  .category-grid {
+  /* .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    height: 230px;
+  } */
+     .categories {
+    padding: 30px 20px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 18px;
+  }
+
+  .category-card {
+    height: 200px;
+  }
+
+  .category-card h3 {
+    font-size: 16px;
+    left: 45px;
+    top: 15px;
   }
 
   .product-grid {
@@ -1041,6 +1165,44 @@ body {
     flex-direction: column;
     gap: 15px;
     text-align: center;
+  }
+  .menu{
+  position: absolute;
+  top: 75px;              /* BELOW navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  padding: 35px 0;
+  display: none;
+  z-index: 1500;
+  }
+
+  #menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+   position: relative;
+  z-index: 2000;
+}
+  #cat-toggle:checked ~ .dropdown-menu-mobile {
+    display: flex;
+  }
+
+.categor-grid {
+    grid-template-columns:  repeat(1, 1fr);
+  }
+ #menu-toggle:checked ~ .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    
   }
 }
 
