@@ -338,10 +338,12 @@ body {
 .categories {
   padding: 50px 80px;
   background: #fff;
-  margin: 0 0px;
+  width:100%;
+  /* margin-left: 10%; */
+  justify-content: center;
 }
 .categories h2 {
-  margin-left: 5%;
+  margin-left: 1%;
 }
 
 
@@ -422,8 +424,19 @@ body {
   transition: transform 0.5s ease, filter 0.3s ease;
 }
 
+.shop-card img{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
 .product-card:hover img {
   transform: scale(1.2);
+}
+.shop-card:hover img{
+   transform: scale(1.2);
 }
 
 .wishlist {
@@ -469,12 +482,37 @@ body {
   background: transparent;
   cursor: pointer;
 }
+.shop-card{
+  margin-top: 15px;
+  padding: 52px;
+  width: 100%;
+  border-radius: 25px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+.shop-card .wishlist{
+   position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
+}
 .product-card button:hover {
   background: #0b4d3c;
   color: #fff;
 }
-
+.shop-card button:hover {
+  background: #0b4d3c;
+  color: #fff;
+}
 .prod{
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -912,6 +950,10 @@ body {
   transform: scale(1.2);
  }
 
+.shop-card{
+
+}
+
 @media (max-width: 1024px) {
 
   .category-grid {
@@ -1250,6 +1292,7 @@ body {
     padding: 10px;
     font-size: 14px;
   }
+  
 
   .trending-grid{
     grid-template-columns: repeat(1, 1fr);
